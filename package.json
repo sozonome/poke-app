@@ -12,11 +12,13 @@
     "push-release": "git push --follow-tags origin main"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@fontsource/lexend": "^4.3.0",
     "framer-motion": "^4.1.11",
+    "graphql": "^15.5.0",
     "next": "^10.2.0",
     "next-pwa": "^5.2.21",
     "react": "^17.0.2",
