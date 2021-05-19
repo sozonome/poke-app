@@ -1,9 +1,11 @@
 import gql from "graphql-tag";
 
-export type PokemonListParam = {
+type PokemonListParam = {
   offset: number;
   limit: number;
 };
+
+export type PokemonListInput = Partial<PokemonListParam>;
 
 export type PokemonItem = {
   name: string;

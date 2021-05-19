@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { Box, Grid, Text } from "@chakra-ui/layout";
-import Image from "next/image";
+
 import SinglePokemon from "./SinglePokemon";
 
-import { PokemonListParam, PokemonListRes, POKEMON_LIST } from "./query";
+import { PokemonListInput, PokemonListRes, POKEMON_LIST } from "./query";
 
 const PokemonList = () => {
-  const { data, loading, error } = useQuery<PokemonListRes, PokemonListParam>(
+  const { data, loading, error } = useQuery<PokemonListRes, PokemonListInput>(
     POKEMON_LIST,
     { variables: { limit: 20, offset: 0 } }
   );
