@@ -1,4 +1,11 @@
 import { useQuery } from "@apollo/client";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+} from "@chakra-ui/accordion";
 import { Button } from "@chakra-ui/button";
 import { Box, Grid, Heading, Text } from "@chakra-ui/layout";
 import Image from "next/image";
@@ -39,6 +46,10 @@ const PokemonDetail = () => {
           <Heading>{data.pokemon.name}</Heading>
         </Box>
 
+        <Button size="lg" colorScheme="orange">
+          Capture
+        </Button>
+
         <Grid gap={3}>
           <Heading size="md">types</Heading>
           <Grid templateColumns={["repeat(2, 1fr)"]} gap={1}>
@@ -48,14 +59,23 @@ const PokemonDetail = () => {
           </Grid>
         </Grid>
 
-        <Grid gap={3}>
-          <Heading size="md">moves</Heading>
-          <Grid templateColumns={["repeat(2, 1fr)"]} gap={1}>
-            {data.pokemon.moves.map(({ move: { name } }) => (
-              <Text>{name}</Text>
-            ))}
-          </Grid>
-        </Grid>
+        <Accordion allowToggle>
+          <AccordionItem>
+            <AccordionButton paddingX={0}>
+              <Heading flex={1} textAlign="left" size="md">
+                moves
+              </Heading>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel>
+              <Grid templateColumns={["repeat(2, 1fr)"]} gap={1}>
+                {data.pokemon.moves.map(({ move: { name } }) => (
+                  <Text>{name}</Text>
+                ))}
+              </Grid>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Grid>
     </Grid>
   ) : null;

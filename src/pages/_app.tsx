@@ -5,8 +5,9 @@ import Head from "next/head";
 import "@fontsource/lexend/latin.css";
 
 import Layout from "components/layout";
+import CaughtPokemonProvider from "components/provider/CaughtPokemonProvider";
 
-import { client } from "api/apolloClient";
+import { client } from "lib/apolloClient";
 
 import customTheme from "styles/customTheme";
 import "styles/globals.css";
@@ -20,11 +21,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <Layout>
-        <ApolloProvider client={client}>
-          <Component {...pageProps} />
-        </ApolloProvider>
-      </Layout>
+
+      <ApolloProvider client={client}>
+        <CaughtPokemonProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CaughtPokemonProvider>
+      </ApolloProvider>
     </ChakraProvider>
   );
 };
