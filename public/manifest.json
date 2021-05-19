@@ -1,6 +1,6 @@
 {
-  "short_name": "nextchakra-starter",
-  "name": "Next.js App Template",
+  "short_name": "poke-app",
+  "name": "Catch your Pokemon",
   "lang": "en",
   "start_url": "/",
   "background_color": "#FFFFFF",
