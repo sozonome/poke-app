@@ -1,7 +1,12 @@
-import { Box, Grid, Text } from "@chakra-ui/layout";
+import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
+import Icon from "@chakra-ui/icon";
+import { useContext } from "react";
+import { AiOutlineCaretRight } from "react-icons/ai";
 
 import SinglePokemon from "./SinglePokemon";
+
+import { CaughtPokemonContext } from "components/provider/CaughtPokemonProvider";
 
 import { PokemonListType } from "./query";
 
@@ -11,8 +16,31 @@ type ListWrapperProps = {
 };
 
 const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
+  const { pokemons: caughPokemons } = useContext(CaughtPokemonContext);
+
   return (
     <Grid gap={8}>
+      <Skeleton isLoaded={!isLoading}>
+        <Flex
+          width="100%"
+          boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
+          padding={4}
+          borderRadius={24}
+          alignItems="center"
+        >
+          <Box>
+            <Heading size="xs">My Pokemon</Heading>
+            <Text fontSize="sm">Owned Total: {caughPokemons.length}</Text>
+          </Box>
+
+          <Icon
+            fontSize="2xl"
+            marginLeft="auto"
+            children={<AiOutlineCaretRight />}
+          />
+        </Flex>
+      </Skeleton>
+
       <Grid
         templateColumns={["repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]}
         gap={8}
@@ -25,12 +53,6 @@ const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
           />
         ))}
       </Grid>
-
-      <Skeleton isLoaded={!isLoading}>
-        <Box textAlign="center">
-          <Text>Count: {pokemons?.count}</Text>
-        </Box>
-      </Skeleton>
     </Grid>
   );
 };

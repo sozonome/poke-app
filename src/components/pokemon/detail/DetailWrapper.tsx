@@ -48,6 +48,7 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
 
       <AccordionWrapper
         allowToggle
+        isLoading={isLoading}
         items={[
           {
             button: (
