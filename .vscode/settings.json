@@ -1,0 +1,12 @@
+{
+  "conventionalCommits.scopes": [
+    "components",
+    "layout",
+    "lib",
+    "pages",
+    "pokemon",
+    "ui",
+    "util",
+    "constants",
+  ]
+}
