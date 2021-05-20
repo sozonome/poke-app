@@ -22,6 +22,11 @@ const customTheme = extendTheme({
         borderRadius: 24,
       },
     },
+    Skeleton: {
+      baseStyle: {
+        borderRadius: 12,
+      },
+    },
   },
 });
 

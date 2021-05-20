@@ -13,7 +13,7 @@ export type PokemonItem = {
   id: number;
 };
 
-type PokemonListType = {
+export type PokemonListType = {
   count: number;
   next: string;
   previous: string;
@@ -21,8 +21,6 @@ type PokemonListType = {
   prevOffset: number;
   params: PokemonListParam;
   results: Array<PokemonItem>;
-  status: boolean;
-  message: string;
 };
 
 export type PokemonListRes = {

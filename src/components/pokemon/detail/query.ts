@@ -8,20 +8,20 @@ type SpriteImage = {
   front_default: string;
 };
 
-type Move = {
+export type Move = {
   move: {
     name: string;
   };
 };
 
-type PokemonType = {
+export type PokemonType = {
   slot: number;
   type: {
     name: string;
   };
 };
 
-type PokemonDetail = {
+export type PokemonDetail = {
   name: string;
   sprites: SpriteImage;
   moves: Array<Move>;
