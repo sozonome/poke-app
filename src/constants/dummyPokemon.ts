@@ -8,7 +8,7 @@ export const DUMMY_POKEMON: PokemonDetail = {
   name: "",
   sprites: {
     front_default:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
   },
   types: Array.from(Array<PokemonType>(2), (_, index) => ({
     slot: index,

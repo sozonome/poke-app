@@ -38,7 +38,6 @@ export const POKEMON_DETAIL = gql`
       name
       sprites {
         front_default
-        front_female
       }
       moves {
         move {

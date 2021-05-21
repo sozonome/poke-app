@@ -1,15 +1,13 @@
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { Button } from "@chakra-ui/button";
-import { Box, Grid, Heading, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
-import AccordionWrapper from "components/ui/accordion";
-import { DUMMY_POKEMON } from "constants/dummyPokemon";
-import Image from "next/image";
+import { Flex, Grid } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiOutlineCaretLeft } from "react-icons/ai";
+
 import DetailWrapper from "./DetailWrapper";
 
+import { DUMMY_POKEMON } from "constants/dummyPokemon";
 import { PokemonDetailRes, POKEMON_DETAIL } from "./query";
 
 const PokemonDetail = () => {
@@ -31,9 +29,11 @@ const PokemonDetail = () => {
 
   return (
     <Grid gap={16}>
-      <Button onClick={() => router.back()} leftIcon={<AiOutlineCaretLeft />}>
-        back
-      </Button>
+      <Flex>
+        <Button onClick={() => router.back()} leftIcon={<AiOutlineCaretLeft />}>
+          back
+        </Button>
+      </Flex>
 
       <DetailWrapper
         pokemon={data?.pokemon ?? DUMMY_POKEMON}
