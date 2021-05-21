@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import { AiOutlineCaretLeft } from "react-icons/ai";
 
 import AlertDialogWrapper from "components/ui/AlertDialogWrapper";
+import AccessibleLink from "components/AccessibleLink";
 
 import {
   CaughtPokemonContext,
@@ -91,19 +92,23 @@ const OwnedPokemonList = () => {
                 padding={2}
                 boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
                 borderRadius={24}
+                key={`${nickName}-${pokemonName}`}
               >
-                <Box>
-                  <Image
-                    src={pokemons[pokemonName].image}
-                    layout="responsive"
-                    width={200}
-                    height={200}
-                  />
-                </Box>
-                <Box wordBreak="break-word">
-                  <Heading size="md">{nickName}</Heading>
-                  <Text fontSize="xs">{pokemonName}</Text>
-                </Box>
+                <AccessibleLink href={`/pokedex/${pokemonName}`}>
+                  <Box>
+                    <Image
+                      src={pokemons[pokemonName].image}
+                      layout="responsive"
+                      width={200}
+                      height={200}
+                    />
+                  </Box>
+                  <Box wordBreak="break-word">
+                    <Heading size="md">{nickName}</Heading>
+                    <Text fontSize="xs">{pokemonName}</Text>
+                  </Box>
+                </AccessibleLink>
+
                 <Button
                   colorScheme="purple"
                   onClick={handleRelease({ name: pokemonName, nickName })}
