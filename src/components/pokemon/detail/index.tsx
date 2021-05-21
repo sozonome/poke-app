@@ -25,12 +25,15 @@ const PokemonDetail = () => {
     }
   }, [name]);
 
+  const handleBack = () =>
+    history.length > 2 ? router.back() : router.push("/");
+
   if (error) return <div>Error</div>;
 
   return (
     <Grid gap={16}>
       <Flex>
-        <Button onClick={() => router.back()} leftIcon={<AiOutlineCaretLeft />}>
+        <Button onClick={handleBack} leftIcon={<AiOutlineCaretLeft />}>
           back
         </Button>
       </Flex>

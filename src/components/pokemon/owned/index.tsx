@@ -69,10 +69,13 @@ const OwnedPokemonList = () => {
     setSelectedPokemon(INITIAL_SELECTED_POKEMON);
   };
 
+  const handleBack = () =>
+    history.length > 2 ? router.back() : router.push("/");
+
   return (
     <Grid gap={8}>
       <Flex>
-        <Button onClick={() => router.back()} leftIcon={<AiOutlineCaretLeft />}>
+        <Button onClick={handleBack} leftIcon={<AiOutlineCaretLeft />}>
           back
         </Button>
       </Flex>
