@@ -1,7 +1,7 @@
 export const rand50 = (): boolean => {
-  const rand = Math.floor(Math.random() * 100);
+  const rand = Math.random();
 
-  if (rand >= 50) {
+  if (rand >= 0.5) {
     return true;
   }
 

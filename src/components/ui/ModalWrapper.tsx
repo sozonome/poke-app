@@ -33,7 +33,7 @@ const ModalWrapper = ({
   return (
     <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent margin={4}>
+      <ModalContent margin={4} borderRadius={24}>
         {header && <ModalHeader>{header}</ModalHeader>}
         {withCloseButton && <ModalCloseButton />}
 

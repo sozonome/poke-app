@@ -23,7 +23,7 @@ const InputWrapper = ({
   return (
     <FormControl isInvalid={isInvalid} width={formControlWidth}>
       {label && <FormLabel>{label}</FormLabel>}
-      <Input {...inputProps} />
+      <Input borderRadius={24} {...inputProps} />
       {helperText && (
         <FormHelperText color="red.400">{helperText}</FormHelperText>
       )}

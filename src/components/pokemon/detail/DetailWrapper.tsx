@@ -9,8 +9,8 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 
 import AccordionWrapper from "components/ui/accordion";
-import ModalWrapper from "components/ui/modal";
-import InputWrapper from "components/ui/input";
+import ModalWrapper from "components/ui/ModalWrapper";
+import InputWrapper from "components/ui/InputWrapper";
 import MotionBox from "components/motion/Box";
 
 import {
@@ -137,7 +137,7 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
             size="lg"
             colorScheme="orange"
           >
-            Capture
+            catch
           </Button>
 
           <ModalWrapper
@@ -187,6 +187,7 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
             confirmButton={
               <Button
                 disabled={!dirty || (dirty && Object.keys(errors).length > 0)}
+                colorScheme="teal"
                 onClick={() => handleSubmit()}
               >
                 save
