@@ -1,5 +1,7 @@
 import { Flex, Link, Text } from "@chakra-ui/layout";
 
+import AccessibleLink from "components/AccessibleLink";
+
 const Footer = () => {
   return (
     <Flex as="footer" width="full" align="center">
@@ -7,7 +9,8 @@ const Footer = () => {
         {new Date().getFullYear()} -{" "}
         <Link href="https://sznm.dev" isExternal>
           sznm.dev
-        </Link>
+        </Link>{" "}
+        | <AccessibleLink href="/credits">credits</AccessibleLink>
       </Text>
     </Flex>
   );
