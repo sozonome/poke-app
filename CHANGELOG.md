@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/sozonome/poke-app/compare/v0.1.2...v0.1.3) (2021-05-21)
+
+
+### Features
+
+* **pages:** add credits page ([a2f6a6e](https://github.com/sozonome/poke-app/commit/a2f6a6e294cf76eaecaff35642de1b5f17b5b874))
+* **pokemon:** :sparkles: add page nav buttons ([1fbf655](https://github.com/sozonome/poke-app/commit/1fbf655c9733ece112ea880499f5773760e6a0d2))
+* **pokemon:** :sparkles: add remove caught pokemon ([8be74ef](https://github.com/sozonome/poke-app/commit/8be74efb769f33c788418854f957dd2bf0a0a24f))
+
 ### [0.1.2](https://github.com/sozonome/poke-app/compare/v0.1.1...v0.1.2) (2021-05-21)
 
 
