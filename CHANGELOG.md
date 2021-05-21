@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/sozonome/poke-app/compare/v0.1.1...v0.1.2) (2021-05-21)
+
+
+### Features
+
+* **pokemon:** :sparkles: add capture pokemon ([37d77b9](https://github.com/sozonome/poke-app/commit/37d77b914885188709abfa18acded5596a9843ae))
+* **pokemon:** :sparkles: show owned total ([a360c15](https://github.com/sozonome/poke-app/commit/a360c15dc8877b8fa1b6567d65b32f5f77fd2f74))
+
 ### 0.1.1 (2021-05-20)
 
 
