@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 
 import SinglePokemon from "./SinglePokemon";
+import AccessibleLink from "components/AccessibleLink";
 
 import { CaughtPokemonContext } from "components/provider/CaughtPokemonProvider";
 
@@ -16,29 +17,31 @@ type ListWrapperProps = {
 };
 
 const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
-  const { pokemons: caughPokemons } = useContext(CaughtPokemonContext);
+  const { totalOwned } = useContext(CaughtPokemonContext);
 
   return (
     <Grid gap={8}>
       <Skeleton isLoaded={!isLoading}>
-        <Flex
-          width="100%"
-          boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
-          padding={4}
-          borderRadius={24}
-          alignItems="center"
-        >
-          <Box>
-            <Heading size="xs">My Pokemon</Heading>
-            <Text fontSize="sm">Owned Total: {caughPokemons.length}</Text>
-          </Box>
+        <AccessibleLink href="/pokedex/owned">
+          <Flex
+            width="100%"
+            boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
+            padding={4}
+            borderRadius={24}
+            alignItems="center"
+          >
+            <Box>
+              <Heading size="xs">My Pokemon</Heading>
+              <Text fontSize="sm">Owned Total: {totalOwned}</Text>
+            </Box>
 
-          <Icon
-            fontSize="2xl"
-            marginLeft="auto"
-            children={<AiOutlineCaretRight />}
-          />
-        </Flex>
+            <Icon
+              fontSize="2xl"
+              marginLeft="auto"
+              children={<AiOutlineCaretRight />}
+            />
+          </Flex>
+        </AccessibleLink>
       </Skeleton>
 
       <Grid

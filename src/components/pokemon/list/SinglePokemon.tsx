@@ -1,9 +1,10 @@
-import { Grid, Link, Text } from "@chakra-ui/layout";
+import { Grid, Text } from "@chakra-ui/layout";
+import { Skeleton } from "@chakra-ui/skeleton";
 import Image from "next/image";
 
+import AccessibleLink from "components/AccessibleLink";
+
 import { PokemonItem } from "./query";
-import { Skeleton } from "@chakra-ui/skeleton";
-import { useRouter } from "next/router";
 
 type SinglePokemonProps = {
   pokemon: PokemonItem;
@@ -11,13 +12,8 @@ type SinglePokemonProps = {
 };
 
 const SinglePokemon = ({ pokemon, isLoading }: SinglePokemonProps) => {
-  const router = useRouter();
-
-  const handleClick = () =>
-    !isLoading && router.push(`/pokedex/${pokemon.name}`);
-
   return (
-    <Link onClick={handleClick}>
+    <AccessibleLink href={!isLoading ? `/pokedex/${pokemon.name}` : "/"}>
       <Grid
         borderRadius={24}
         textAlign="center"
@@ -38,7 +34,7 @@ const SinglePokemon = ({ pokemon, isLoading }: SinglePokemonProps) => {
           <Text fontWeight="semibold">{pokemon.name}</Text>
         </Skeleton>
       </Grid>
-    </Link>
+    </AccessibleLink>
   );
 };
 
