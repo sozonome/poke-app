@@ -1,4 +1,4 @@
-import { Grid, Heading } from "@chakra-ui/layout";
+import { Grid, Heading, Text } from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
 import Image from "next/image";
 
@@ -34,6 +34,9 @@ const SinglePokemon = ({ pokemon, isLoading }: SinglePokemonProps) => {
           <Heading size="sm" wordBreak="break-word">
             {pokemon.name}
           </Heading>
+          <Text fontWeight="semibold" fontSize="sm">
+            #{pokemon.id}
+          </Text>
         </Skeleton>
       </Grid>
     </AccessibleLink>

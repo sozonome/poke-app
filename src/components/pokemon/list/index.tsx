@@ -1,6 +1,7 @@
 import { NetworkStatus, useQuery } from "@apollo/client";
 import { Grid, Heading } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
+import { useRouter } from "next/router";
 
 import ListWrapper from "./ListWrapper";
 
@@ -8,11 +9,16 @@ import { DUMMY_POKEMONS } from "constants/dummyPokemons";
 import { PokemonListInput, PokemonListRes, POKEMON_LIST } from "./query";
 
 const PokemonList = () => {
+  const router = useRouter();
+  const {
+    query: { offset },
+  } = router;
+
   const { data, loading, error, networkStatus, refetch } = useQuery<
     PokemonListRes,
     PokemonListInput
   >(POKEMON_LIST, {
-    variables: { limit: 20, offset: 0 },
+    variables: { limit: 20, offset: Number(offset as string) ?? 0 },
     notifyOnNetworkStatusChange: true,
   });
 
