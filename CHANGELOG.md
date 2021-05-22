@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/sozonome/poke-app/compare/v0.1.3...v0.1.4) (2021-05-22)
+
+
+### Features
+
+* **pokemon:** :sparkles: add route to detail for my pokemon ([ae87a80](https://github.com/sozonome/poke-app/commit/ae87a80775137b81939e30afce968ffe2551b484))
+* **pokemon:** :sparkles: add search box in my pokemon ([5c585d2](https://github.com/sozonome/poke-app/commit/5c585d2cf2d405e01a09229362cff01aa3c9efff))
+
 ### [0.1.3](https://github.com/sozonome/poke-app/compare/v0.1.2...v0.1.3) (2021-05-21)
 
 
