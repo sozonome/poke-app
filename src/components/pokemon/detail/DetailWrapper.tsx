@@ -56,7 +56,11 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
           formErrors.nickName = "Nickname must be filled.";
         }
 
-        if (pokemons?.[pokemon.name]?.nickNames?.includes(formValue.nickName)) {
+        if (
+          pokemons?.[pokemon.name]?.nickNames
+            ?.map((nickName) => nickName.toLowerCase())
+            .includes(formValue.nickName.toLowerCase())
+        ) {
           formErrors.nickName =
             "You already use this nickname for this pokemon. Type another nickname.";
         }
