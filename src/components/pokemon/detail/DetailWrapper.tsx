@@ -30,6 +30,8 @@ import { rand50 } from "util/rand50";
 
 import { PokemonDetail } from "./query";
 
+import { textGradientStyle } from "styles/textGradient";
+
 type DetailWrapperProps = {
   pokemon: PokemonDetail;
   isLoading?: boolean;
@@ -136,11 +138,21 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
             />
           </Skeleton>
           <Skeleton isLoaded={!isLoading}>
-            <Heading>{pokemon.name}</Heading>
+            <Flex gridGap={2} alignItems="center">
+              <Heading {...textGradientStyle}>{pokemon.name}</Heading>
+              <Text fontWeight="bold" fontSize="md" opacity={0.3}>
+                #{pokemon.id}
+              </Text>
+            </Flex>
           </Skeleton>
         </Box>
 
-        <Skeleton isLoaded={!isLoading}>
+        <Skeleton
+          isLoaded={!isLoading}
+          display="grid"
+          gridGap={8}
+          alignItems="center"
+        >
           <Button
             onClick={handleCapturePokemon}
             isFullWidth
@@ -149,6 +161,17 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
           >
             catch
           </Button>
+
+          <Flex alignItems="center" gridGap={2} wrap="wrap">
+            <Heading width="full" size="sm">
+              abilities
+            </Heading>
+            <Grid templateColumns={["repeat(2, 1fr)"]} gap={1}>
+              {pokemon.abilities.map(({ ability: { name } }) => (
+                <Text key={name}>{name}</Text>
+              ))}
+            </Grid>
+          </Flex>
 
           <ModalWrapper
             isOpen={isCaptureModalOpen}
@@ -207,20 +230,18 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
         </Skeleton>
       </Grid>
 
-      <Grid gap={3}>
-        <Skeleton isLoaded={!isLoading}>
-          <Flex alignItems="center" gridGap={2}>
-            <Heading size="sm">types</Heading>
-            <Wrap>
-              {pokemon.types.map(({ type: { name } }) => (
-                <WrapItem key={name}>
-                  <Badge colorScheme="purple">{name}</Badge>
-                </WrapItem>
-              ))}
-            </Wrap>
-          </Flex>
-        </Skeleton>
-      </Grid>
+      <Skeleton isLoaded={!isLoading}>
+        <Flex alignItems="center" gridGap={2}>
+          <Heading size="sm">types</Heading>
+          <Wrap>
+            {pokemon.types.map(({ type: { name } }) => (
+              <WrapItem key={name}>
+                <Badge colorScheme="purple">{name}</Badge>
+              </WrapItem>
+            ))}
+          </Wrap>
+        </Flex>
+      </Skeleton>
 
       <AccordionWrapper
         allowToggle

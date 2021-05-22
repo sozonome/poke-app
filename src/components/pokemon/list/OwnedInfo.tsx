@@ -8,6 +8,8 @@ import AccessibleLink from "components/AccessibleLink";
 
 import { CaughtPokemonContext } from "components/provider/CaughtPokemonProvider";
 
+import { cardStyle } from "styles/card";
+
 const OwnedInfo = () => {
   const { totalOwned, isLoadingPokemons } = useContext(CaughtPokemonContext);
 
@@ -16,11 +18,9 @@ const OwnedInfo = () => {
       <Skeleton isLoaded={!isLoadingPokemons}>
         <Flex
           width="100%"
-          boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
-          padding={4}
-          borderRadius={24}
           alignItems="center"
           bgGradient="linear(to-br, yellow.400, orange.300)"
+          {...cardStyle}
         >
           <Box>
             <Heading size="md">My Pokemon</Heading>

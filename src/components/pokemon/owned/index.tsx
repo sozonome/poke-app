@@ -18,6 +18,8 @@ import {
   CaughtPokemons,
 } from "components/provider/CaughtPokemonProvider";
 
+import { cardStyle } from "styles/card";
+
 type SelectedPokemonType = {
   name: string;
   nickName: string;
@@ -132,9 +134,7 @@ const OwnedPokemonList = () => {
                     <Grid
                       textAlign="center"
                       gap={2}
-                      padding={2}
-                      boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
-                      borderRadius={24}
+                      {...cardStyle}
                       key={`${nickName}-${pokemonName}`}
                     >
                       <AccessibleLink href={`/pokedex/${pokemonName}`}>

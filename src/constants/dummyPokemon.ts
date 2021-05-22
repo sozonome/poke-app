@@ -1,10 +1,12 @@
 import {
   Move,
+  PokemonAbility,
   PokemonDetail,
   PokemonType,
 } from "components/pokemon/detail/query";
 
 export const DUMMY_POKEMON: PokemonDetail = {
+  id: 1,
   name: "",
   sprites: {
     front_default:
@@ -21,4 +23,11 @@ export const DUMMY_POKEMON: PokemonDetail = {
       name: `move-${index}`,
     },
   })),
+  abilities: Array.from(Array<PokemonAbility>(4), (_, index) => ({
+    ability: {
+      name: `ability-${index}`,
+    },
+    is_hidden: false,
+  })),
+  weight: 60,
 };

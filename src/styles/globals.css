@@ -2,3 +2,10 @@
 html {
   scroll-behavior: smooth;
 }
+
+::-moz-selection,
+::selection {
+  background: #f81ce5;
+  color: white;
+  opacity: 1;
+}

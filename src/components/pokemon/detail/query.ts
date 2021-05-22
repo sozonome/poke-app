@@ -21,11 +21,21 @@ export type PokemonType = {
   };
 };
 
+export type PokemonAbility = {
+  ability: {
+    name: string;
+  };
+  is_hidden: boolean;
+};
+
 export type PokemonDetail = {
+  id: number;
   name: string;
   sprites: SpriteImage;
   moves: Array<Move>;
   types: Array<PokemonType>;
+  abilities: Array<PokemonAbility>;
+  weight: number;
 };
 
 export type PokemonDetailRes = {
@@ -35,6 +45,7 @@ export type PokemonDetailRes = {
 export const POKEMON_DETAIL = gql`
   query PokemonDetail($name: String!) {
     pokemon(name: $name) {
+      id
       name
       sprites {
         front_default
@@ -50,6 +61,13 @@ export const POKEMON_DETAIL = gql`
           name
         }
       }
+      abilities {
+        ability {
+          name
+        }
+        is_hidden
+      }
+      weight
     }
   }
 `;
