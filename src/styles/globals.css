@@ -1,8 +1,4 @@
 /* Global Styling here */
-html {
-  scroll-behavior: smooth;
-}
-
 ::-moz-selection,
 ::selection {
   background: #f81ce5;
