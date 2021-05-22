@@ -25,7 +25,14 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#FFFFFF" />
 
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/icon/icon-192x192.png"
+          />
+
           <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/pikachu.svg" />
         </Head>
         <body>
           <Main />

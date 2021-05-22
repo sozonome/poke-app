@@ -1,10 +1,10 @@
 {
   "short_name": "poke-app",
-  "name": "Catch your Pokemon",
+  "name": "Pokemon",
   "lang": "en",
   "start_url": "/",
   "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "theme_color": "#f6ad55",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "portrait",
@@ -14,6 +14,26 @@
       "src": "/pikachu.svg",
       "purpose": "maskable any",
       "sizes": "48x48 72x72 96x96 128x128 256x256"
+    },
+    {
+      "src": "/icon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
