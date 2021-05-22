@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/sozonome/poke-app/compare/v0.1.4...v0.1.5) (2021-05-22)
+
+
+### Bug Fixes
+
+* **pokemon:** :lipstick: reduce layout / value shift when refresh or first time load for owned info ([d6455d6](https://github.com/sozonome/poke-app/commit/d6455d6fed975d3f93a3c775bc01fc2a43c7e431))
+
 ### [0.1.4](https://github.com/sozonome/poke-app/compare/v0.1.3...v0.1.4) (2021-05-22)
 
 
