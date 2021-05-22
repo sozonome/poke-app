@@ -2,7 +2,6 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import Image from "next/image";
 
 import AccessibleLink from "components/AccessibleLink";
-import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
@@ -40,10 +39,6 @@ const Header = () => {
             <Text fontSize="sm">Catch 'em all!</Text>
           </Box>
         </AccessibleLink>
-
-        <Box marginLeft="auto">
-          <ThemeToggle />
-        </Box>
       </Flex>
     </Box>
   );
