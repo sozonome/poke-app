@@ -1,22 +1,51 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
+import Image from "next/image";
 
 import AccessibleLink from "components/AccessibleLink";
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <Flex as="header" width="full" align="center">
-      <AccessibleLink href="/">
-        <Heading as="h1" size="md">
-          Pokemon
-        </Heading>
-        <Text fontSize="sm">Catch 'em all!</Text>
-      </AccessibleLink>
+    <Box
+      as="header"
+      position="fixed"
+      top={0}
+      width="full"
+      zIndex={5}
+      color="white"
+    >
+      <Flex
+        align="center"
+        maxWidth="800px"
+        marginX="auto"
+        gridGap={2}
+        padding={8}
+        backgroundColor="rgba(237, 137, 54, 0.8)"
+        backdropFilter="blur(6px)"
+        borderBottomRadius={24}
+      >
+        <AccessibleLink href="/" display="flex" alignItems="center" gridGap={2}>
+          <Box width={8}>
+            <Image
+              src="/pokeball.svg"
+              layout="responsive"
+              width="100%"
+              height="100%"
+            />
+          </Box>
+          <Box>
+            <Heading as="h1" size="md">
+              Pokemon
+            </Heading>
+            <Text fontSize="sm">Catch 'em all!</Text>
+          </Box>
+        </AccessibleLink>
 
-      <Box marginLeft="auto">
-        <ThemeToggle />
-      </Box>
-    </Flex>
+        <Box marginLeft="auto">
+          <ThemeToggle />
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 

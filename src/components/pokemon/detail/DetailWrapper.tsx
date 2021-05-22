@@ -1,6 +1,15 @@
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, Grid, Heading, Text } from "@chakra-ui/layout";
+import {
+  Badge,
+  Box,
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/layout";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useToast } from "@chakra-ui/toast";
 import { FormikErrors, useFormik } from "formik";
@@ -66,8 +75,9 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
         );
 
         updateCaughtPokemons(updateStoredPokemons);
+        toast.closeAll();
         toast({
-          title: "saved",
+          title: `saved as ${formValue.nickName}`,
           status: "success",
         });
         setFieldValue("nickName", "");
@@ -98,7 +108,7 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
 
       if (success) {
         toast({
-          title: "Captured!",
+          title: `${pokemon.name} captured!`,
           status: "success",
           isClosable: true,
         });
@@ -199,12 +209,16 @@ const DetailWrapper = ({ pokemon, isLoading }: DetailWrapperProps) => {
 
       <Grid gap={3}>
         <Skeleton isLoaded={!isLoading}>
-          <Heading size="md">types</Heading>
-          <Grid templateColumns={["repeat(2, 1fr)"]} gap={1}>
-            {pokemon.types.map(({ type: { name } }) => (
-              <Text key={name}>{name}</Text>
-            ))}
-          </Grid>
+          <Flex alignItems="center" gridGap={2}>
+            <Heading size="sm">types</Heading>
+            <Wrap>
+              {pokemon.types.map(({ type: { name } }) => (
+                <WrapItem key={name}>
+                  <Badge colorScheme="purple">{name}</Badge>
+                </WrapItem>
+              ))}
+            </Wrap>
+          </Flex>
         </Skeleton>
       </Grid>
 

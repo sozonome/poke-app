@@ -5,7 +5,10 @@ import {
 import Link, { LinkProps } from "next/link";
 
 type AccessibleLinkProps = Pick<LinkProps, "href" | "as"> &
-  Pick<ChakraLinkProps, "children" | "isExternal"> & {
+  Pick<
+    ChakraLinkProps,
+    "children" | "isExternal" | "display" | "alignItems" | "gridGap"
+  > & {
     disabled?: boolean;
   };
 
@@ -15,6 +18,9 @@ const AccessibleLink = ({
   children,
   as,
   disabled,
+  display,
+  alignItems,
+  gridGap,
 }: AccessibleLinkProps) => {
   if (disabled) {
     return <>{children}</>;
@@ -22,7 +28,14 @@ const AccessibleLink = ({
 
   return (
     <Link href={href} as={as} passHref>
-      <ChakraLink isExternal={isExternal}>{children}</ChakraLink>
+      <ChakraLink
+        display={display}
+        alignItems={alignItems}
+        isExternal={isExternal}
+        gridGap={gridGap}
+      >
+        {children}
+      </ChakraLink>
     </Link>
   );
 };

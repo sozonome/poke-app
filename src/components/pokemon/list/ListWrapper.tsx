@@ -1,14 +1,9 @@
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
-import Icon from "@chakra-ui/icon";
-import { useContext } from "react";
-import { AiOutlineCaretRight } from "react-icons/ai";
+import { Grid, Heading } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 
 import SinglePokemon from "./SinglePokemon";
-import AccessibleLink from "components/AccessibleLink";
 import PageNavButtons from "./PageNavButtons";
-
-import { CaughtPokemonContext } from "components/provider/CaughtPokemonProvider";
+import OwnedInfo from "./OwnedInfo";
 
 import { PokemonListType } from "./query";
 
@@ -19,7 +14,6 @@ type ListWrapperProps = {
 
 const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
   const router = useRouter();
-  const { totalOwned } = useContext(CaughtPokemonContext);
 
   const handleChangePage = (type: "next" | "prev") => () => {
     if (type === "next") {
@@ -30,50 +24,39 @@ const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
 
   return (
     <Grid gap={8}>
-      <AccessibleLink href="/pokedex/owned">
-        <Flex
-          width="100%"
-          boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
-          padding={4}
-          borderRadius={24}
-          alignItems="center"
+      <OwnedInfo />
+
+      <Grid gap={2}>
+        <Heading
+          bgGradient="linear(to-br, yellow.400, orange.300)"
+          bgClip="text"
         >
-          <Box>
-            <Heading size="xs">My Pokemon</Heading>
-            <Text fontSize="sm">Owned Total: {totalOwned}</Text>
-          </Box>
+          Pokedex
+        </Heading>
+        <PageNavButtons
+          isLoading={isLoading}
+          prevDisabled={!pokemons.previous}
+          nextDisabled={!pokemons.next}
+          handleChangePage={handleChangePage}
+        />
 
-          <Icon
-            fontSize="2xl"
-            marginLeft="auto"
-            children={<AiOutlineCaretRight />}
-          />
-        </Flex>
-      </AccessibleLink>
+        <Grid templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]} gap={8}>
+          {pokemons.results.map((pokemon) => (
+            <SinglePokemon
+              isLoading={isLoading}
+              pokemon={pokemon}
+              key={pokemon.name}
+            />
+          ))}
+        </Grid>
 
-      <PageNavButtons
-        isLoading={isLoading}
-        prevDisabled={!pokemons.previous}
-        nextDisabled={!pokemons.next}
-        handleChangePage={handleChangePage}
-      />
-
-      <Grid templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]} gap={8}>
-        {pokemons.results.map((pokemon) => (
-          <SinglePokemon
-            isLoading={isLoading}
-            pokemon={pokemon}
-            key={pokemon.name}
-          />
-        ))}
+        <PageNavButtons
+          isLoading={isLoading}
+          prevDisabled={!pokemons.previous}
+          nextDisabled={!pokemons.next}
+          handleChangePage={handleChangePage}
+        />
       </Grid>
-
-      <PageNavButtons
-        isLoading={isLoading}
-        prevDisabled={!pokemons.previous}
-        nextDisabled={!pokemons.next}
-        handleChangePage={handleChangePage}
-      />
     </Grid>
   );
 };
