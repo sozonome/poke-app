@@ -30,6 +30,8 @@ const PokemonDetail = () => {
 
   if (error) return <div>Error</div>;
 
+  if (data && !data.pokemon.name) return <div>Pokemon not Found</div>;
+
   return (
     <Grid gap={16}>
       <Flex>
