@@ -5,11 +5,20 @@ import {
   FormLabel,
   HelpTextProps,
 } from "@chakra-ui/form-control";
-import { Input, InputProps } from "@chakra-ui/input";
+import {
+  Input,
+  InputElementProps,
+  InputGroup,
+  InputLeftElement,
+  InputProps,
+  InputRightElement,
+} from "@chakra-ui/input";
 
 type InputWrapperProps = {
   helperText?: HelpTextProps["children"];
   formControlWidth?: FormControlProps["width"];
+  leftElement?: InputElementProps["children"];
+  rightElement?: InputElementProps["children"];
 } & Pick<FormControlProps, "label" | "isInvalid"> &
   InputProps;
 
@@ -18,12 +27,26 @@ const InputWrapper = ({
   formControlWidth,
   isInvalid,
   helperText,
+  leftElement,
+  rightElement,
   ...inputProps
 }: InputWrapperProps) => {
+  const hasAddon = !!(rightElement || leftElement);
+
   return (
     <FormControl isInvalid={isInvalid} width={formControlWidth}>
       {label && <FormLabel>{label}</FormLabel>}
-      <Input borderRadius={24} {...inputProps} />
+
+      {hasAddon ? (
+        <InputGroup>
+          {leftElement && <InputLeftElement children={leftElement} />}
+          <Input borderRadius={24} {...inputProps} />
+          {rightElement && <InputRightElement children={rightElement} />}
+        </InputGroup>
+      ) : (
+        <Input borderRadius={24} {...inputProps} />
+      )}
+
       {helperText && (
         <FormHelperText color="red.400">{helperText}</FormHelperText>
       )}
