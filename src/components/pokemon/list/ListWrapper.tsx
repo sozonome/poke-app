@@ -58,10 +58,7 @@ const ListWrapper = ({ pokemons, isLoading }: ListWrapperProps) => {
         handleChangePage={handleChangePage}
       />
 
-      <Grid
-        templateColumns={["repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]}
-        gap={8}
-      >
+      <Grid templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]} gap={8}>
         {pokemons.results.map((pokemon) => (
           <SinglePokemon
             isLoading={isLoading}
