@@ -10,12 +10,14 @@ export type CaughtPokemons = {
 type CaughtPokemonContextType = {
   pokemons: CaughtPokemons;
   totalOwned: number;
+  isLoadingPokemons: boolean;
   updateCaughtPokemons: (pokemons: CaughtPokemons) => void;
 };
 
 export const CaughtPokemonContext = createContext<CaughtPokemonContextType>({
   pokemons: {},
   totalOwned: 0,
+  isLoadingPokemons: false,
   updateCaughtPokemons: () => {},
 });
 
@@ -26,6 +28,7 @@ type CaughtPokemonProviderProps = {
 const CaughtPokemonProvider = ({ children }: CaughtPokemonProviderProps) => {
   const [pokemons, setPokemons] = useState<CaughtPokemons>({});
   const [totalOwned, setTotalOwned] = useState<number>(0);
+  const [isLoadingPokemons, setIsLoadingPokemons] = useState<boolean>(true);
 
   const countTotalPokemon = (caughtPokemons: CaughtPokemons) => {
     let total = 0;
@@ -45,6 +48,7 @@ const CaughtPokemonProvider = ({ children }: CaughtPokemonProviderProps) => {
       setPokemons(persistedCaughtPokemons);
       setTotalOwned(counted);
     }
+    setIsLoadingPokemons(false);
   }, []);
 
   const updateCaughtPokemons = (updateCaughtPokemons: CaughtPokemons) => {
@@ -57,7 +61,7 @@ const CaughtPokemonProvider = ({ children }: CaughtPokemonProviderProps) => {
 
   return (
     <CaughtPokemonContext.Provider
-      value={{ pokemons, totalOwned, updateCaughtPokemons }}
+      value={{ pokemons, totalOwned, isLoadingPokemons, updateCaughtPokemons }}
     >
       {children}
     </CaughtPokemonContext.Provider>

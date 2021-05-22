@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
+import { Skeleton } from "@chakra-ui/skeleton";
 import { useToast } from "@chakra-ui/toast";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -29,7 +30,7 @@ const INITIAL_SELECTED_POKEMON: SelectedPokemonType = {
 
 const OwnedPokemonList = () => {
   const router = useRouter();
-  const { pokemons, totalOwned, updateCaughtPokemons } =
+  const { pokemons, totalOwned, isLoadingPokemons, updateCaughtPokemons } =
     useContext(CaughtPokemonContext);
 
   const [selectedPokemon, setSelectedPokemon] = useState<SelectedPokemonType>(
@@ -91,94 +92,97 @@ const OwnedPokemonList = () => {
 
       <Heading textAlign="center">My Pokemon</Heading>
 
-      {totalOwned > 0 ? (
-        <>
-          <InputWrapper
-            placeholder="pokemon name / nickname"
-            value={keyword}
-            type="text"
-            onChange={handleChangeKeyword}
-            leftElement={<MdSearch />}
-            rightElement={
-              keyword.length && (
-                <IconButton
-                  aria-label="clear"
-                  onClick={clearKeyword}
-                  variant="ghost"
-                  margin={2}
-                  icon={<MdClear />}
-                />
-              )
-            }
-          />
-          <Grid
-            templateColumns={[
-              "repeat(2,1fr)",
-              "repeat(3,1fr)",
-              "repeat(4,1fr)",
-            ]}
-            gap={8}
-          >
-            {Object.keys(pokemons).map((pokemonName) =>
-              pokemons[pokemonName]?.nickNames
-                ?.filter(
-                  (nickName) =>
-                    pokemonName.includes(keyword) || nickName.includes(keyword)
+      <Skeleton isLoaded={!isLoadingPokemons} display="grid" gridGap={8}>
+        {totalOwned > 0 ? (
+          <>
+            <InputWrapper
+              placeholder="pokemon name / nickname"
+              value={keyword}
+              type="text"
+              onChange={handleChangeKeyword}
+              leftElement={<MdSearch />}
+              rightElement={
+                keyword.length && (
+                  <IconButton
+                    aria-label="clear"
+                    onClick={clearKeyword}
+                    variant="ghost"
+                    margin={2}
+                    icon={<MdClear />}
+                  />
                 )
-                .map((nickName) => (
-                  <Grid
-                    textAlign="center"
-                    gap={2}
-                    padding={2}
-                    boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
-                    borderRadius={24}
-                    key={`${nickName}-${pokemonName}`}
-                  >
-                    <AccessibleLink href={`/pokedex/${pokemonName}`}>
-                      <Box>
-                        <Image
-                          src={pokemons[pokemonName].image}
-                          layout="responsive"
-                          width={200}
-                          height={200}
-                        />
-                      </Box>
-                      <Box wordBreak="break-word">
-                        <Heading size="md">{nickName}</Heading>
-                        <Text fontSize="xs">{pokemonName}</Text>
-                      </Box>
-                    </AccessibleLink>
-
-                    <Button
-                      colorScheme="purple"
-                      onClick={handleRelease({ name: pokemonName, nickName })}
+              }
+            />
+            <Grid
+              templateColumns={[
+                "repeat(2,1fr)",
+                "repeat(3,1fr)",
+                "repeat(4,1fr)",
+              ]}
+              gap={8}
+            >
+              {Object.keys(pokemons).map((pokemonName) =>
+                pokemons[pokemonName]?.nickNames
+                  ?.filter(
+                    (nickName) =>
+                      pokemonName.includes(keyword) ||
+                      nickName.includes(keyword)
+                  )
+                  .map((nickName) => (
+                    <Grid
+                      textAlign="center"
+                      gap={2}
+                      padding={2}
+                      boxShadow="0px 0px 15px 3px rgba(140,140,140,0.2)"
+                      borderRadius={24}
+                      key={`${nickName}-${pokemonName}`}
                     >
-                      release
-                    </Button>
-                  </Grid>
-                ))
-            )}
-          </Grid>
-          <AlertDialogWrapper
-            isOpen={isOpen}
-            onClose={cancelRelease}
-            header="Release Pokemon"
-            body={`Are you sure you want to release ${selectedPokemon.nickName} (${selectedPokemon.name})?`}
-            confirmButton={
-              <Button colorScheme="purple" onClick={releasePokemon}>
-                release
-              </Button>
-            }
-          />
-        </>
-      ) : (
-        <Box textAlign="center">
-          <Text marginBottom={4}>You haven't catched any pokemon yet.</Text>
-          <Button colorScheme="orange" onClick={() => router.push("/")}>
-            catch pokemon
-          </Button>
-        </Box>
-      )}
+                      <AccessibleLink href={`/pokedex/${pokemonName}`}>
+                        <Box>
+                          <Image
+                            src={pokemons[pokemonName].image}
+                            layout="responsive"
+                            width={200}
+                            height={200}
+                          />
+                        </Box>
+                        <Box wordBreak="break-word">
+                          <Heading size="md">{nickName}</Heading>
+                          <Text fontSize="xs">{pokemonName}</Text>
+                        </Box>
+                      </AccessibleLink>
+
+                      <Button
+                        colorScheme="purple"
+                        onClick={handleRelease({ name: pokemonName, nickName })}
+                      >
+                        release
+                      </Button>
+                    </Grid>
+                  ))
+              )}
+            </Grid>
+            <AlertDialogWrapper
+              isOpen={isOpen}
+              onClose={cancelRelease}
+              header="Release Pokemon"
+              body={`Are you sure you want to release ${selectedPokemon.nickName} (${selectedPokemon.name})?`}
+              confirmButton={
+                <Button colorScheme="purple" onClick={releasePokemon}>
+                  release
+                </Button>
+              }
+            />
+          </>
+        ) : (
+          <Box textAlign="center">
+            <Text marginBottom={4}>You haven't catched any pokemon yet.</Text>
+            <Button colorScheme="orange" onClick={() => router.push("/")}>
+              catch pokemon
+            </Button>
+          </Box>
+        )}
+      </Skeleton>
     </Grid>
   );
 };
