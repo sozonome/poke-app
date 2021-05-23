@@ -2,7 +2,7 @@
 
 # poke-app
 
-Pokemon app bootstrapped using [`sozonome/nextchakra-starter`](https://github.com/sozonome/nextchakra-starter) template. Data fetched from `graphql-pokeapi` using [Apollo Client](https://www.apollographql.com/docs/react/).
+Pokemon app bootstrapped using [`sozonome/nextchakra-starter`](https://github.com/sozonome/nextchakra-starter) template. Data fetched from [`graphql-pokeapi`](https://graphql-pokeapi.vercel.app/) using [Apollo Client](https://www.apollographql.com/docs/react/).
 
 ## Getting Started
 
