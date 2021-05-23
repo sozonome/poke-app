@@ -2,6 +2,8 @@
 
 # poke-app
 
+[**Live App Here**](https://pokemon.sznm.dev)
+
 Pokemon app bootstrapped using [`sozonome/nextchakra-starter`](https://github.com/sozonome/nextchakra-starter) template. Data fetched from [`graphql-pokeapi`](https://graphql-pokeapi.vercel.app/) using [Apollo Client](https://www.apollographql.com/docs/react/).
 
 ## Getting Started
