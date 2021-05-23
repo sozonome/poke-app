@@ -14,7 +14,7 @@ import {
   CaughtPokemonContext,
   CaughtPokemons,
 } from "components/provider/CaughtPokemonProvider";
-import { rand50 } from "util/rand50";
+import { rand50 } from "utils/rand50";
 
 import { PokemonDetail } from "../query";
 
