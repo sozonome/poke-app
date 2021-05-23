@@ -1,4 +1,8 @@
+<img src="/public/pokeball.svg" alt="poke-app" width="100" />
+
 # poke-app
+
+Pokemon app bootstrapped using [`sozonome/nextchakra-starter`](https://github.com/sozonome/nextchakra-starter) template. Data fetched from `graphql-pokeapi` using [Apollo Client](https://www.apollographql.com/docs/react/).
 
 ## Getting Started
 
@@ -20,3 +24,4 @@ You can start editing the page by modifying `src/pages/index.js`. The page auto-
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Chakra UI](https://chakra-ui.com)
 - [TypeScript](https://www.typescriptlang.org)
+- [Apollo GraphQL](https://www.apollographql.com/)
