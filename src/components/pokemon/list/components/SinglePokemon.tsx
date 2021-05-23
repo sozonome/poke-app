@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import AccessibleLink from "components/AccessibleLink";
 
-import { PokemonItem } from "./query";
+import { PokemonItem } from "../query";
 
 import { textGradientStyle } from "styles/textGradient";
 import { cardStyle } from "styles/card";
