@@ -10,10 +10,10 @@ export const DUMMY_POKEMONS: PokemonListType = {
   nextOffset: 0,
   prevOffset: 0,
   results: Array.from(Array<PokemonItem>(20), (_, index) => ({
-    name: `pokemon-${index}`,
+    name: `pokemon-${index + 1}`,
     image:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    id: index,
+    id: index + 1,
   })),
   count: 0,
 };

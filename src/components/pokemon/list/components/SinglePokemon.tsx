@@ -9,7 +9,7 @@ import { PokemonItem } from "../query";
 import { textGradientStyle } from "styles/textGradient";
 import { cardStyle } from "styles/card";
 
-type SinglePokemonProps = {
+export type SinglePokemonProps = {
   pokemon: PokemonItem;
   isLoading?: boolean;
 };
@@ -22,6 +22,7 @@ const SinglePokemon = ({ pokemon, isLoading }: SinglePokemonProps) => {
         gridGap={4}
         bgGradient="linear(to-br, yellow.400, orange.300)"
         height="full"
+        data-testid="single-pokemon"
         {...cardStyle}
       >
         <Skeleton isLoaded={!isLoading} fadeDuration={1}>
@@ -51,6 +52,7 @@ const SinglePokemon = ({ pokemon, isLoading }: SinglePokemonProps) => {
               layout="responsive"
               width="100%"
               height="100%"
+              alt={pokemon.name}
             />
           </Box>
         </Skeleton>
