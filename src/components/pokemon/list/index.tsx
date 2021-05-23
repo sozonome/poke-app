@@ -12,7 +12,7 @@ const PokemonList = () => {
   const router = useRouter();
   const {
     query: { offset },
-  } = router;
+  } = router || { query: { offset: 0 } };
 
   const { data, loading, error, networkStatus, refetch } = useQuery<
     PokemonListRes,
