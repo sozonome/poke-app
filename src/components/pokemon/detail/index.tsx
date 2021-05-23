@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiOutlineCaretLeft } from "react-icons/ai";
 
-import DetailWrapper from "./DetailWrapper";
+import DetailWrapper from "./components/DetailWrapper";
 
 import { DUMMY_POKEMON } from "constants/dummyPokemon";
 import { PokemonDetailRes, POKEMON_DETAIL } from "./query";

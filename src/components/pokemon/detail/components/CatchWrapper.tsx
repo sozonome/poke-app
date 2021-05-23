@@ -16,7 +16,7 @@ import {
 } from "components/provider/CaughtPokemonProvider";
 import { rand50 } from "util/rand50";
 
-import { PokemonDetail } from "./query";
+import { PokemonDetail } from "../query";
 
 type CapturedPokemonInput = {
   nickName: string;

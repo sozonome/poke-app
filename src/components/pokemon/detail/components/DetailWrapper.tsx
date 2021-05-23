@@ -14,7 +14,7 @@ import Image from "next/image";
 import CatchWrapper from "./CatchWrapper";
 import AccordionWrapper from "components/ui/accordion";
 
-import { PokemonDetail } from "./query";
+import { PokemonDetail } from "../query";
 
 import { textGradientStyle } from "styles/textGradient";
 

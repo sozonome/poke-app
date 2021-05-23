@@ -5,7 +5,7 @@ import SinglePokemon from "./SinglePokemon";
 import PageNavButtons from "./PageNavButtons";
 import OwnedInfo from "./OwnedInfo";
 
-import { PokemonListType } from "./query";
+import { PokemonListType } from "../query";
 
 type ListWrapperProps = {
   pokemons: PokemonListType;

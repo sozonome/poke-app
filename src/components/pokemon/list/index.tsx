@@ -3,7 +3,7 @@ import { Grid, Heading } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/router";
 
-import ListWrapper from "./ListWrapper";
+import ListWrapper from "./components/ListWrapper";
 
 import { DUMMY_POKEMONS } from "constants/dummyPokemons";
 import { PokemonListInput, PokemonListRes, POKEMON_LIST } from "./query";
