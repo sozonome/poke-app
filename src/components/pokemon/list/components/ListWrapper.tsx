@@ -1,4 +1,4 @@
-import { Grid, Heading } from "@chakra-ui/layout";
+import { Grid, Heading } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 import SinglePokemon from "./SinglePokemon";

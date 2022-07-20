@@ -1,5 +1,4 @@
-import { Box, Flex, Grid, Heading, Link } from "@chakra-ui/layout";
-import Image from "next/image";
+import { Box, Flex, Grid, Heading, Image, Link } from "@chakra-ui/react";
 
 const Credits = () => {
   return (

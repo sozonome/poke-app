@@ -1,5 +1,5 @@
-import { Button } from "@chakra-ui/button";
 import {
+  Button,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -8,7 +8,7 @@ import {
   ModalHeader,
   ModalOverlay,
   ModalProps,
-} from "@chakra-ui/modal";
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 type ModalWrapperProps = Pick<ModalProps, "isOpen" | "onClose"> & {

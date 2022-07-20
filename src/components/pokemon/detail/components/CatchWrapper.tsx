@@ -1,7 +1,4 @@
-import { Button } from "@chakra-ui/button";
-import { useDisclosure } from "@chakra-ui/hooks";
-import { useToast } from "@chakra-ui/toast";
-import Image from "next/image";
+import { Button, Image, useDisclosure, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { FormikErrors, useFormik } from "formik";

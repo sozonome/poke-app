@@ -1,6 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
-import Image from "next/image";
+import { Box, Flex, Heading, Image, Skeleton, Text } from "@chakra-ui/react";
 
 import AccessibleLink from "components/AccessibleLink";
 

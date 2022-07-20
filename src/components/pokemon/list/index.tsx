@@ -1,6 +1,5 @@
 import { NetworkStatus, useQuery } from "@apollo/client";
-import { Grid, Heading } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
+import { Button, Grid, Heading } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 import ListWrapper from "./components/ListWrapper";

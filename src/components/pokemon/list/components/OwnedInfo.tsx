@@ -1,6 +1,4 @@
-import Icon from "@chakra-ui/icon";
-import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
+import { Box, Flex, Heading, Icon, Skeleton, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 

@@ -1,7 +1,10 @@
-import { Button, IconButton } from "@chakra-ui/button";
-import { useDisclosure } from "@chakra-ui/hooks";
-import { Grid } from "@chakra-ui/layout";
-import { useToast } from "@chakra-ui/toast";
+import {
+  Button,
+  Grid,
+  IconButton,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import { ChangeEventHandler, useContext, useState } from "react";
 import { MdClear, MdSearch } from "react-icons/md";
 

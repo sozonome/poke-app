@@ -4,7 +4,7 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-} from "@chakra-ui/accordion";
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 export type AccordionItemType = {

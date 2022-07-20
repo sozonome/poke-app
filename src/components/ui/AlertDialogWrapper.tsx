@@ -1,4 +1,3 @@
-import { Button } from "@chakra-ui/button";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -7,7 +6,8 @@ import {
   AlertDialogHeader,
   AlertDialogOverlay,
   AlertDialogProps,
-} from "@chakra-ui/modal";
+  Button,
+} from "@chakra-ui/react";
 import { ReactNode, useRef } from "react";
 
 type AlertDialogWrapperProps = Pick<AlertDialogProps, "isOpen" | "onClose"> & {

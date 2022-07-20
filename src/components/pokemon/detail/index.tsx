@@ -1,6 +1,5 @@
 import { useLazyQuery } from "@apollo/client";
-import { Button } from "@chakra-ui/button";
-import { Flex, Grid } from "@chakra-ui/layout";
+import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiOutlineCaretLeft } from "react-icons/ai";

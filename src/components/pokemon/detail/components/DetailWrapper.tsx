@@ -4,12 +4,12 @@ import {
   Flex,
   Grid,
   Heading,
+  Image,
+  Skeleton,
   Text,
   Wrap,
   WrapItem,
-} from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
-import Image from "next/image";
+} from "@chakra-ui/react";
 
 import CatchWrapper from "./CatchWrapper";
 import AccordionWrapper from "components/ui/accordion";

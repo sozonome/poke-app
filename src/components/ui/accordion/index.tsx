@@ -1,5 +1,4 @@
-import { Accordion, AccordionProps } from "@chakra-ui/accordion";
-import { Skeleton } from "@chakra-ui/skeleton";
+import { Accordion, AccordionProps, Skeleton } from "@chakra-ui/react";
 
 import AccordionItemWrapper, {
   AccordionItemType,

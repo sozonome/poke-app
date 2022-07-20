@@ -1,6 +1,4 @@
-import { IconButton } from "@chakra-ui/button";
-import { Grid } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
+import { Grid, IconButton, Skeleton } from "@chakra-ui/react";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 type PageNavButtonsProps = {

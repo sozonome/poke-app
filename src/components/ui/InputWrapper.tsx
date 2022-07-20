@@ -4,15 +4,13 @@ import {
   FormHelperText,
   FormLabel,
   HelpTextProps,
-} from "@chakra-ui/form-control";
-import {
   Input,
   InputElementProps,
   InputGroup,
   InputLeftElement,
   InputProps,
   InputRightElement,
-} from "@chakra-ui/input";
+} from "@chakra-ui/react";
 
 type InputWrapperProps = {
   helperText?: HelpTextProps["children"];

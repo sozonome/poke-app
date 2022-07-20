@@ -1,6 +1,12 @@
-import { Button } from "@chakra-ui/button";
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/skeleton";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Skeleton,
+  Text,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { AiOutlineCaretLeft } from "react-icons/ai";

@@ -1,6 +1,4 @@
-import { Button } from "@chakra-ui/button";
-import { Box, Grid, Heading, Text } from "@chakra-ui/layout";
-import Image from "next/image";
+import { Box, Button, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 
 import AccessibleLink from "components/AccessibleLink";
